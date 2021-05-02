@@ -10,8 +10,32 @@
 <body>
   <div class="container">
     <h1>Price Calculator</h1>
-    
+    <form>
+      <label for="shipping-method">Shipping Method</label>
+      <select name="shipping-method" id="shippingMethod">
+        <option value="air">Air</option>
+      </select>
+
+      <label for="carting">Carting</label>
+      <select name="carting" id="carting">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      
+      <label for="item-description">Item Description</label>
+      <select name="item-description" id="itemDescription">
+      </select>
+      <label for="invoice-cost">Invoice cost</label>
+      <input type="number" id="invoiceCost" name="invoice-cost">
+      <label for="shipping-weight">Shipping Weight</label>
+      <input type="number" id="shippingWeight" name="shipping-weight">
+
+    </form>
+
   </div>
+  <script src="data.js"></script>
+  <script src="variables.js"></script>
+  <script src="appfunctions.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

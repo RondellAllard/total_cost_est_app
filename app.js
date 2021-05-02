@@ -1,14 +1,6 @@
-const shippingMethod  = prompt("Enter shipping Method");
-const crating = prompt("Enter 'yes' or 'no' for crating");
-const costInUSD = prompt("Enter cost");
-const shippingWeight = prompt("Enter weight");
-const itemDescription = {
-  clothes:{
-    duty: .20,
-    vat: .125
-  }
-}
-
+// const shippingMethod  = prompt("Enter shipping Method");
+// const crating = prompt("Enter 'yes' or 'no' for crating");
+// const costInUSD = prompt("Enter cost");
 // Cost per pound is $30 per pound  under 5 lbs, $20 per pound > 10lbs  $10 per pound for 10 pounds and over. 
 const freightChargeValue = () => {
   if (shippingWeight < 5) {
@@ -30,9 +22,9 @@ const cratingFeeValue = () => {
 
 const handlingVatValue = .6;
 
-const fuelSurchargeValue = shippingWeight * 3;
-const onlineTaxValue = costInUSD * .07;
-const basicInsurnaceValue = costInUSD * .01;
+const fuelSurchargeValue = () => shippingWeight * 3;
+const onlineTaxValue = () => costInUSD * .07;
+const basicInsurnaceValue = () =>  costInUSD * .01;
 // const itemDuty = itemDescriptionSelected.duty;
 // const itemVat = itemDescriptionSelected.vat;
 // const dutyValue = () =>  costInUSD * itemDuty;
