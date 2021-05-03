@@ -22,19 +22,6 @@ shippingWeightValue = parseInt(costInUSD.value)
 console.log(shippingWeightValue)
 })
 
-
-// Cost per pound is $30 per pound  under 5 lbs, $20 per pound > 10lbs  $10 per pound for 10 pounds and over. 
-const freightCharge = () => {
-  if (shippingWeightValue < 5) {
-    return  freightChargeValue = shippingWeightValue * 30;
-  }
-  else if (shippingWeightValue < 10) {
-    return freightChargeValue = shippingWeightValue * 20;
-  }
-  else return freightChargeValue = shippingWeightValue * 10
-}
-
-
 const cratingFeeValue = () => {
   if(crating) {
     return 200
@@ -77,6 +64,19 @@ const vatOnItem = () => {
 // const customsVatValue = () =>  costInUSD * itemVat;
 // const totalEstimateValue = freightChargeValue() + fuelSurchargeValue() + cratingFeeValue() + handlingVatValue + onlineTaxValue() + basicInsurnaceValue() + dutyValue() + customsVatValue();
 
+
+// Cost per pound is $30 per pound  under 5 lbs, $20 per pound > 10lbs  $10 per pound for 10 pounds and over. 
+const freightCharge = () => {
+  console.log("dog")
+  if (shippingWeightValue < 5) {
+    return freightChargeValue = shippingWeightValue * 30;
+ 
+  }
+  else if (shippingWeightValue < 10) {
+    return freightChargeValue = shippingWeightValue * 20;
+  }
+  else return freightChargeValue = shippingWeightValue * 10
+}
 
 
 document.getElementById('calculator').addEventListener('submit', function(e) {
