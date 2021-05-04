@@ -18,7 +18,7 @@ console.log(costInUSDValue)
 })
 shippingWeight.addEventListener("keyup", e => {
 console.log(shippingWeight.value)
-shippingWeightValue = parseInt(costInUSD.value)
+shippingWeightValue = parseInt(shippingWeight.value)
 console.log(shippingWeightValue)
 })
 
@@ -67,10 +67,8 @@ const vatOnItem = () => {
 
 // Cost per pound is $30 per pound  under 5 lbs, $20 per pound > 10lbs  $10 per pound for 10 pounds and over. 
 const freightCharge = () => {
-  console.log("dog")
   if (shippingWeightValue < 5) {
     return freightChargeValue = shippingWeightValue * 30;
- 
   }
   else if (shippingWeightValue < 10) {
     return freightChargeValue = shippingWeightValue * 20;
@@ -81,18 +79,48 @@ const freightCharge = () => {
 
 document.getElementById('calculator').addEventListener('submit', function(e) {
   e.preventDefault()
+ 
   let fuelSurchargeValue = shippingWeightValue * 3;
   let onlineTaxValue = costInUSDValue * .07;
   let basicInsurnaceValue =  costInUSDValue * .01;
   let itemDutyValue = itemDuty * costInUSDValue;
-  let itemVatValue = itemVat * costInUSDValue;
+  let itemVatValue = itemVat * costInUSDValue; 
 const summary = {
+  freightCharges:freightCharge(),
   fuelSurcharge: fuelSurchargeValue,
   onlineTax: onlineTaxValue,
   basicInsurnace: basicInsurnaceValue,
   dutyCost: itemDutyValue,
   vatCost: itemVatValue,
-  freightCharge: freightChargeValue
 }
+
+
+
+  let totalEst = summary.freightCharges + fuelSurchargeValue + onlineTaxValue + basicInsurnaceValue + itemDutyValue + itemVatValue
+
   console.log(summary)
+  const fc = document.createElement('li')
+  fc.innerText = `Freight Charges: $${summary.freightCharges}`;
+
+  const fuelS = document.createElement('li')
+  fuelS.innerText = `Fuel Surcharge: $${fuelSurchargeValue}`;
+
+  const onlineT = document.createElement('li')
+  onlineT.innerText = `Online Tax: $${onlineTaxValue}`;
+
+  const bInsure = document.createElement('li')
+  bInsure.innerText = `Basic Insrance: $${basicInsurnaceValue}`;
+
+  const dValue = document.createElement('li')
+  dValue.innerText = `Duty: $${itemDutyValue}`;
+
+  const vatVal = document.createElement('li')
+  vatVal.innerText = `Vat: $${itemVatValue}`;
+  
+  const totalVal = document.createElement('li')
+  totalVal.innerText = `Total Cost: $${totalEst}USD`;
+
+
+
+  document.getElementById('summaryInvoice').append(fc, fuelS, onlineT, bInsure, dValue, vatVal, totalVal)
 })
